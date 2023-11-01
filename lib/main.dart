@@ -29,8 +29,14 @@ ThemeData lightTheme(ColorScheme? lightColorScheme) {
       ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 93, 137, 239));
   return ThemeData(
     colorScheme: scheme,
-    textTheme: GoogleFonts.mPlusRounded1cTextTheme(
+    textTheme: GoogleFonts.mPlusRounded1cTextTheme().copyWith(
       //Theme.of(context).textTheme,
+      bodyMedium: const TextStyle( // ダークテーマの通常のテキスト
+        color: Colors.black, // テキストの色を白に変更
+      ),
+      displayMedium: const TextStyle( // ダークテーマのタイトル
+        color: Colors.black87, // タイトルの色を真っ白に変更
+      ),
     ),
   );
 }
@@ -43,8 +49,14 @@ ThemeData darkTheme(ColorScheme? darkColorScheme) {
       );
   return ThemeData(
     colorScheme: scheme,
-    textTheme: GoogleFonts.mPlusRounded1cTextTheme(
+    textTheme: GoogleFonts.mPlusRounded1cTextTheme().copyWith(
       //Theme.of(context).textTheme,
+      bodyMedium: const TextStyle( // ダークテーマの通常のテキスト
+        color: Colors.white, // テキストの色を白に変更
+      ),
+      displayMedium: const TextStyle( // ダークテーマのタイトル
+        color: Colors.white70, // タイトルの色を真っ白に変更
+      ),
     ),
   );
 }
@@ -142,7 +154,10 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     child: Text(
                       _expression,
-                      style: TextStyle(fontSize: 32),
+                      style: TextStyle(
+                        fontSize: 32,
+                        //color: Colors.white,
+                        ),
                     ),
                   ),
                 ),
@@ -164,7 +179,10 @@ class _CalculatorState extends State<Calculator> {
                       ),
                     child: Text(
                       '= $_result',
-                      style: TextStyle(fontSize: 48),
+                      style: TextStyle(
+                        fontSize: 48,
+                        //color: Colors.white
+                        ),
                     ),
                   ),
                 ),
