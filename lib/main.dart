@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:math_expressions/math_expressions.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(CalculatorApp());
@@ -116,6 +117,7 @@ class _CalculatorState extends State<Calculator> {
         ),
         onPressed: () {
           _updateExpression(label);
+          HapticFeedback.mediumImpact();
         },
         child: Center(
           child: Text(
@@ -131,7 +133,7 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculator App'),
+        title: Text('flutter_Calculator'),
       ),
       body: Column(
         //中央寄せ
